@@ -1,14 +1,16 @@
-import { BrowserRouter } from 'react-router-dom';
+// src/app/App.tsx
+import { AppRouter } from './router';
+import { Providers } from './providers';
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <nav className="bg-slate-900 text-white p-4 shadow-md">
-        <div className="max-w-4xl mx-auto flex justify-between items-center">
-          <span className="font-bold tracking-tight">TASK_ARCHITECT v1.0</span>
-          <div className="text-xs uppercase tracking-widest text-slate-400">Vite + TS + Tailwind v4</div>
-        </div>
-      </nav>
-    </BrowserRouter>
+    <div className="min-h-screen bg-slate-50 text-slate-900">
+      {/* The Broadcast Tower is now active! 
+        Everything inside <Providers> can read from and write to the global state.
+      */}
+      <Providers>
+        <AppRouter />
+      </Providers>
+    </div>
   );
 }
